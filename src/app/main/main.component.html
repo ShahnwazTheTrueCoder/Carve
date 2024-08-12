@@ -1,40 +1,52 @@
 <header>
-    <div class="container">
-        <h1>Connect with your Friends Easily</h1>
-        <p>Unlocking a world of fun</p>
-        <div class="download-buttons">
-            <button class="btn">App Store</button>
-            <button class="btn">Google Play</button>
+    <div>
+        <div class="text-center heading_one text-white">Connect with your <br> Friends Easily</div>
+        <p class="text-center heading_second text-white">The best app for your communication</p>
+        <div class="d-flex justify-content-center">
+            <button mat-raised-button color="primary" class="me-4">
+                <mat-icon>apple</mat-icon> App Store
+            </button>
+
+            <button mat-raised-button color="accent">
+                <mat-icon>android</mat-icon> Google Play
+            </button>
         </div>
     </div>
-  </header>
-  
-  <main>
+</header>
+
+<main>
     <section class="hero">
-        <div class="container">
-            <div class="hero-image">
-                <img src="https://placehold.co/200x250" alt="Phone">
-                <img src="https://placehold.co/200x250" alt="Phone">
-            </div>
-            <div class="hero-text">
-                <h2>Send private messages</h2>
-                <p>Say hello to a secure platform where you can send private messages without worrying about privacy.</p>
-                <button class="btn">Learn More</button>
-            </div>
+
+        <div class="hero-image">
+            <img src="https://placehold.co/200x250" alt="Phone">
+            <img src="https://placehold.co/200x250" alt="Phone">
+        </div>
+
+    </section>
+
+    <section class="bg-black py-3">
+        <div class="px-5">
+            <h2 class="second_one text-white">Send private messages</h2>
+            <p class="second_two text-white">Simple secure and private messaging <br>
+                free* worldwide.</p>
+            <button mat-raised-button color="primary" class="download-button">
+                Download <mat-icon>download</mat-icon>
+
+            </button>
         </div>
     </section>
-  
-    <section class="features">
-        <div class="container">
-            <div class="feature">
-                <img src="https://placehold.co/200x250" alt="Woman using phone">
-            </div>
-            <div class="feature">
-                <img src="https://placehold.co/200x250" alt="Man using laptop">
-            </div>
+
+
+    <section class="d-flex flex-wrap justify-content-evenly bg-black px-5 pb-4">
+        <div class="img-container me-2 pt-5 rounded">
+          <img src="assets/girl.jpg" alt="Woman using phone" class="img-fluid">
         </div>
-    </section>
-  
+        <div class="img-container">
+          <img src="assets/boy.jpg" alt="Man using laptop" class="img-fluid">
+        </div>
+      </section>
+      
+
     <section class="benefits">
         <div class="container">
             <h2>Our Core Benefits</h2>
@@ -42,7 +54,10 @@
                 <div class="benefit-card">
                     <h3>Create your team</h3>
                     <p>Connect with friends, family and colleagues in one place.</p>
-                    <button class="btn">Learn More</button>
+                    <button mat-raised-button color="primary" class="download-button">
+                        Download
+                        <mat-icon>download</mat-icon>
+                    </button>
                 </div>
                 <div class="benefit-card">
                     <h3>Secure Encryption</h3>
@@ -57,30 +72,36 @@
             </div>
         </div>
     </section>
-  
+
     <section class="testimonials">
         <div class="container">
-            <h2>Thousands of users  with Alread of us</h2>
+            <h2>Thousands of users with Alread of us</h2>
             <div class="testimonial-cards">
                 <div class="testimonial-card">
-                    <p>“This app is amazing! It's so easy to use and connect with my friends and family." - <span class="author">John Doe</span></p>
+                    <p>“This app is amazing! It's so easy to use and connect with my friends and family." - <span
+                            class="author">John Doe</span></p>
                 </div>
                 <div class="testimonial-card">
-                    <p>“I love the security features of this app. I feel confident knowing my conversations are protected." - <span class="author">Jane Doe</span></p>
+                    <p>“I love the security features of this app. I feel confident knowing my conversations are
+                        protected." - <span class="author">Jane Doe</span></p>
                 </div>
                 <div class="testimonial-card">
-                    <p>“The team behind this app is fantastic. They are always responsive and helpful." - <span class="author">Mark Doe</span></p>
+                    <p>“The team behind this app is fantastic. They are always responsive and helpful." - <span
+                            class="author">Mark Doe</span></p>
                 </div>
                 <div class="testimonial-card">
-                    <p>“This app has made it so much easier to stay in touch with everyone. I highly recommend it!" - <span class="author">Sarah Doe</span></p>
+                    <p>“This app has made it so much easier to stay in touch with everyone. I highly recommend it!" -
+                        <span class="author">Sarah Doe</span>
+                    </p>
                 </div>
                 <div class="testimonial-card">
-                    <p>“I love the design and user interface of this app. It's sleek and intuitive." - <span class="author">David Doe</span></p>
+                    <p>“I love the design and user interface of this app. It's sleek and intuitive." - <span
+                            class="author">David Doe</span></p>
                 </div>
             </div>
         </div>
     </section>
-  
+
     <section class="cta">
         <div class="container">
             <h2>Download the app and chat with pleasure!</h2>
@@ -90,6 +111,4 @@
             </div>
         </div>
     </section>
-  </main>
-  
-  
+</main>
