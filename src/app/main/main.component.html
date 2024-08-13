@@ -39,35 +39,68 @@
 
     <section class="d-flex flex-wrap justify-content-evenly bg-black px-5 pb-4">
         <div class="img-container me-2 pt-5 rounded">
-          <img src="assets/girl.jpg" alt="Woman using phone" class="img-fluid">
+            <img src="assets/girl.jpg" alt="Woman using phone" class="img-fluid">
         </div>
         <div class="img-container">
-          <img src="assets/boy.jpg" alt="Man using laptop" class="img-fluid">
+            <img src="assets/boy.jpg" alt="Man using laptop" class="img-fluid">
         </div>
-      </section>
-      
+    </section>
 
-    <section class="benefits">
-        <div class="container">
-            <h2>Our Core Benefits</h2>
-            <div class="benefit-cards">
-                <div class="benefit-card">
-                    <h3>Create your team</h3>
-                    <p>Connect with friends, family and colleagues in one place.</p>
-                    <button mat-raised-button color="primary" class="download-button">
-                        Download
-                        <mat-icon>download</mat-icon>
-                    </button>
+
+    <section class="benefits bg-black">
+
+        <div class="py-4 bg-black">
+            <div class="text-center third_one">Our new features</div>
+        </div>
+
+        <div>
+            <div class="d-flex flex-column flex-md-row p-5">
+                <div class="col-md-6 mb-4  mb-md-0 me-2">
+                    <mat-card appearance="outlined" class="card_one">
+                        <div class="py-4 d-flex flex-column align-items-center">
+                            <div class="py-4 createteam">Create your team</div>
+                            <button mat-flat-button color="accent">
+                                Get The App
+                            </button>
+                        </div>
+                       
+                        <img  mat-card-image src="assets/boy.jpg" alt="Photo of a Shiba Inu">
+                 
+                    </mat-card>
                 </div>
-                <div class="benefit-card">
-                    <h3>Secure Encryption</h3>
-                    <p>Your data is protected with end-to-end encryption.</p>
-                    <button class="btn">Learn More</button>
-                </div>
-                <div class="benefit-card">
-                    <h3>Upgrade Now</h3>
-                    <p>Unlock premium features for an enhanced experience.</p>
-                    <button class="btn">Learn More</button>
+                <div class="col-md-6">
+                    <div class="d-flex flex-column">
+                        <mat-card class="mb-3 p-4 card_pre border-black" appearance="outlined">
+                            <div class="d-flex flex-column  flex-md-row align-items-center text-center text-md-start">
+                                <div class="mb-3 mb-md-0 me-md-4">
+                                    <!-- Added margin-end for spacing on larger screens and margin-bottom on mobile -->
+                                    <div class="py-4 mb-4 text-style-one">Voice Transcription</div>
+                                    <div class="text-style-second">
+                                        The new voice transcription feature helps you record messages while you’re on the move.
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <img class="card-img_one img-fluid" src="assets/girl.jpg" alt="Voice Transcription">
+                                </div>
+                            </div>
+                        </mat-card>
+                        
+                        
+                        <mat-card class="mb-3 p-4 card_pre border-black" appearance="outlined">
+                            <div class="d-flex flex-column  flex-md-row align-items-center text-center text-md-start">
+                                <div class="mb-md-0 me-md-4">
+                                    <!-- Added margin-end for spacing on larger screens and margin-bottom on mobile -->
+                                    <div class="py-4 mb-4 text-style-one">Voice Transcription</div>
+                                    <div class="text-style-second">
+                                        The new voice transcription feature helps you record messages while you’re on the move.
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <img class="card-img_one img-fluid" src="assets/girl.jpg" alt="Voice Transcription">
+                                </div>
+                            </div>
+                        </mat-card>
+                    </div>
                 </div>
             </div>
         </div>

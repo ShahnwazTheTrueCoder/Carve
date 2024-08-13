@@ -222,3 +222,48 @@ footer {
     }
   }
   
+  .third_one{
+    font-family: Sansation;
+    color: white;
+    letter-spacing: 1.12px;
+    font-size: clamp(20px, 2vw, 40px);
+    font-weight: bold;
+  }
+
+  .createteam{
+    font-family: sans-serif;;
+    letter-spacing: 1.12px;
+    font-size: clamp(20px, 2vw, 40px);
+    // font-weight: bold;
+  }
+
+  .card_one{
+    background-color: #B2B3FF;
+  }
+
+  .card_pre{
+    background-color: #191919;
+    color: white;
+  }
+
+  .card-img_one{
+    object-fit:contain;
+     height: 290px;
+     width: 645px;
+  }
+
+  .text-style-one{
+     font-family: Sansation;
+     font-weight: bold;
+     font-size: clamp(20px, 2vw, 40px);
+     letter-spacing: 0.64px;
+  }
+  .text-style-second{
+     font-family: Sansation Light;
+     font-size: clamp(14px, 1.5vw, 16px);
+     letter-spacing: 0.64px;
+  }
+
+  .img_one_one{
+    height: 530px;
+  }
