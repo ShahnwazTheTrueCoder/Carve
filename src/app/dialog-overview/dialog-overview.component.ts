@@ -6,16 +6,18 @@ import {MAT_DIALOG_DATA,MatDialog,MatDialogActions,MatDialogClose,MatDialogConte
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dialog-overview',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule,],
+  imports: [MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule,CommonModule],
   templateUrl: './dialog-overview.component.html',
   styleUrl: './dialog-overview.component.scss'
 })
 export class DialogOverviewComponent {
   form: FormGroup;
+  createRoomDailog = false
   constructor(public dialogRef: MatDialogRef<DialogOverviewComponent>, private fb: FormBuilder,) {
 
     this.form = this.fb.group({

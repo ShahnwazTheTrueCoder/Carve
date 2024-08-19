@@ -12,7 +12,7 @@ import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [HomeComponent],
   imports: [CommonModule,RouterOutlet, FooterComponent, MainComponent, HeaderComponent, MatIconModule,MatButtonModule],
 })
 export class AppModule { }

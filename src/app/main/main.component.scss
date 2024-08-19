@@ -267,3 +267,16 @@ footer {
   .img_one_one{
     height: 530px;
   }
+
+  .image-container {
+    width: 100%;
+    max-width: 100%;
+    height: auto; /* This makes the div adjust its height based on the content */
+}
+
+/* Style for the image */
+.image-container img {
+    width: 100%; /* Image will scale to fit the width of the container */
+    height: auto; /* Height adjusts to maintain aspect ratio */
+    display: block; /* Remove extra space below the image */
+}
