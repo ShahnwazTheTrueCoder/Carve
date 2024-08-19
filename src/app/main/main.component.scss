@@ -113,6 +113,7 @@ p {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    color: white;
 }
 
 .testimonial-card {
@@ -131,15 +132,7 @@ p {
     font-weight: bold;
 }
 
-.cta {
-    background-color: #673ab7;
-    padding: 40px 0;
-    text-align: center;
-}
 
-.cta h2 {
-    margin-bottom: 20px;
-}
 
 footer {
     background-color: #282c34;
@@ -267,6 +260,15 @@ footer {
   .img_one_one{
     height: 530px;
   }
+  
+  .cta {
+    background-color: #000000;
+    text-align: center;
+}
+
+  .bg-box_one{
+    background-color:#6E40FF;
+  }
 
   .image-container {
     width: 100%;
@@ -279,4 +281,17 @@ footer {
     width: 100%; /* Image will scale to fit the width of the container */
     height: auto; /* Height adjusts to maintain aspect ratio */
     display: block; /* Remove extra space below the image */
+}
+
+
+.text-one_design{
+    font-size: clamp(18px, 2.5vw, 32px);
+  font-family: Sansation;
+//  line-height: 72px;
+
+}
+
+.text_author_commnet{
+    font-size: clamp(12px, 1vw, 14px);
+  font-family: Sansation;
 }
