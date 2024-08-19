@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nicomoji.css);
 /* You can add global styles to this file, and also import other style files */
 .container {
     max-width: 1200px;
@@ -9,7 +10,11 @@
 @import 'bootstrap/scss/bootstrap';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-/* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    font-family: 'Nico Moji';
+    background-color: black;
+}
+.txt-white{
+    color: white;
+}
