@@ -8,7 +8,7 @@
       </mat-form-field>
     </div>
     <div mat-dialog-actions class="d-flex justify-content-evenly w-100">
-      <button mat-raised-button color="primary" class="btn btn-primary">Join Room</button>
+      <button mat-raised-button color="primary" class="btn btn-primary" (click)="joinRoom()">Join Room</button>
       <button mat-raised-button color="accent" class="btn btn-secondary" (click)="createRoomDailog = true">Create Room</button>
     </div>
   </div>
@@ -23,8 +23,8 @@
       </mat-form-field>
     </div>
     <div mat-dialog-actions class="d-flex justify-content-evenly w-100">
-      <button mat-raised-button color="primary" class="btn btn-primary">Back</button>
-      <button mat-raised-button color="accent" class="btn btn-secondary">Create Room</button>
+      <button mat-raised-button color="primary" class="btn btn-primary"(click)="createRoomDailog = false">Back</button>
+      <button mat-raised-button color="accent" class="btn btn-secondary" >Create Room</button>
     </div>
   </div>
 </ng-template>

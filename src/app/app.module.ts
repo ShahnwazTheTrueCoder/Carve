@@ -6,13 +6,11 @@ import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [],
   imports: [CommonModule,RouterOutlet, FooterComponent, MainComponent, HeaderComponent, MatIconModule,MatButtonModule],
 })
 export class AppModule { }
