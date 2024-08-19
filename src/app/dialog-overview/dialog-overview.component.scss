@@ -1,0 +1,31 @@
+.mat-dialog-title {
+    text-align: center;
+  }
+  
+  .mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 600px) {
+    .mat-dialog-actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
+
+  .text_style{
+     font-family: sans-serif;
+     
+  }
