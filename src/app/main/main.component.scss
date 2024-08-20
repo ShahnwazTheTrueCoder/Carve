@@ -238,6 +238,10 @@ footer {
     background-color: #191919;
     color: white;
   }
+  .card_pre_two{
+    background-color: #6E40FF;
+    color: white;
+  }
 
   .card-img_one{
     object-fit:contain;
@@ -254,7 +258,7 @@ footer {
   .text-style-second{
      font-family: Sansation Light;
      font-size: clamp(14px, 1.5vw, 16px);
-     letter-spacing: 0.64px;
+     letter-spacing: 1.64px;
   }
 
   .img_one_one{
@@ -294,4 +298,13 @@ footer {
 .text_author_commnet{
     font-size: clamp(12px, 1vw, 14px);
   font-family: Sansation;
+}
+.text_santaion{
+ font-family: sans-serif;    
+}
+.third_two{
+    font-family: sans-serif;
+    line-height: 31px;
+    color: white;
+    font-size: clamp(14px, 1.5vw, 18px);
 }
