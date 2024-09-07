@@ -36,10 +36,12 @@
         <h2>Chat Room</h2>
     </div>
     <div class="chat-messages">
-        <div *ngFor="let message of messages" class="message"
-            [ngClass]="{'sent': message.isSent, 'received': !message.isSent}">
-            <p>{{ message.text }}</p>
+        <ng-template [ngIf]="messages$ | async">
+            <div *ngFor="let message of messages$ | async" class="message"
+            [ngClass]="{'sent': message.user === user, 'received': message.user != user}">
+            <p>{{ message.message }}</p>
         </div>
+        </ng-template>
     </div>
     <div class="chat-input">
         <input [(ngModel)]="newMessage" placeholder="Type your message..." (keyup.enter)="sendMessage()" />
