@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ChatServerService } from '../chat-server.service';
@@ -38,23 +38,26 @@ export class ChatRoomComponent {
   constructor(
     private chatService : ChatServerService,
     public route : ActivatedRoute,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+     @Inject(PLATFORM_ID) private platformId: any
   ){
   }
 
   
   ngOnInit() {
-    this.user = localStorage.getItem("user")
-    this.route.queryParams.subscribe(params=>{
-      console.log("params",params['roomCode'])
-      this.room = params['roomCode']
-      this.joinRoom(this.room)
-      this.chatService.onMessage().subscribe((message: any) => {
-        console.log("this is comming message",message,this.messages)
-        this.addMessage
-        this.messages.push(message);  // Add the new message to the list
-      });
-    })
+     if (isPlatformBrowser(this.platformId)) {
+      this.user = localStorage.getItem("user")
+      this.route.queryParams.subscribe(params => {
+        console.log("params", params['roomCode'])
+        this.room = params['roomCode']
+        this.joinRoom(this.room)
+        this.chatService.onMessage().subscribe((message: any) => {
+          console.log("this is comming message", message, this.messages)
+          this.addMessage
+          this.messages.push(message);  // Add the new message to the list
+        });
+      })
+    }
   }
   
   joinRoom(room:string) {
