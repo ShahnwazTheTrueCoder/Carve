@@ -1,11 +1,25 @@
 <ng-template [ngIf]="!createRoomDailog">
   <div class="p-5">
     <h4 mat-dialog-title class="text-center text_style mb-4">Please Join Room</h4>
-    <div mat-dialog-content class="d-flex px-2 flex-column align-items-center">
+    <div mat-dialog-content class="d-flex px-2 flex-column align-items-center" [formGroup]="form">
       <mat-form-field appearance="outline" class="w-100 mb-4">
         <mat-label>Room Code</mat-label>
-        <input matInput placeholder="Enter room code">
+        <input matInput placeholder="Enter room code" formControlName="roomCode">
       </mat-form-field>
+      <mat-error *ngIf="isInvalid('roomCode')">
+        <ng-container *ngIf="roomCode?.hasError('required')">
+          Room Code is required.
+        </ng-container>
+        <!-- <ng-container *ngIf="this.chatServ.roomCode == null">
+          Room doesn't exist.
+        </ng-container> -->
+        <!-- <ng-container *ngIf="form.get('roomCode').hasError('minlength')">
+          Room Code must be at least 4 characters long.
+        </ng-container>
+        <ng-container *ngIf="form.get('roomCode').hasError('maxlength')">
+          Room Code cannot be more than 10 characters long.
+        </ng-container> -->
+      </mat-error>
     </div>
     <div mat-dialog-actions class="d-flex justify-content-evenly w-100">
       <button mat-raised-button color="primary" class="btn btn-primary" (click)="joinRoom()">Join Room</button>
