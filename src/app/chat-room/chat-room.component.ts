@@ -36,29 +36,25 @@ export class ChatRoomComponent {
   newMessage: string = '';
 
   constructor(
-    private chatService: ChatServerService,
-    public route: ActivatedRoute,
-    private _snackBar: MatSnackBar,
-    @Inject(PLATFORM_ID) private platformId: any
-  ) {
+    private chatService : ChatServerService,
+    public route : ActivatedRoute,
+    private _snackBar: MatSnackBar
+  ){
   }
 
 
   ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      // this.user = localStorage.getItem("user")
-      this.user ='shahnwaz'
-      this.route.queryParams.subscribe(params => {
-        console.log("params", params['roomCode'])
-        this.room = params['roomCode']
-        this.joinRoom(this.room)
-        this.chatService.onMessage().subscribe((message: any) => {
-          console.log("this is comming message", message, this.messages)
-          this.addMessage
-          this.messages.push(message);  // Add the new message to the list
-        });
-      })
-    }
+    this.user = localStorage.getItem("user")
+    this.route.queryParams.subscribe(params=>{
+      console.log("params",params['roomCode'])
+      this.room = params['roomCode']
+      this.joinRoom(this.room)
+      this.chatService.onMessage().subscribe((message: any) => {
+        console.log("this is comming message",message,this.messages)
+        this.addMessage
+        this.messages.push(message);  // Add the new message to the list
+      });
+    })
   }
 
   joinRoom(room: string) {
