@@ -1,5 +1,5 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule} from '@angular/common';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ChatServerService } from '../chat-server.service';
@@ -44,7 +44,8 @@ export class ChatRoomComponent {
 
 
   ngOnInit() {
-    this.user = localStorage.getItem("user")
+    // this.user = localStorage.getItem("user")
+    this.user = 'shahnwaz'
     this.route.queryParams.subscribe(params=>{
       console.log("params",params['roomCode'])
       this.room = params['roomCode']
