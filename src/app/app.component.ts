@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, Inject, PLATFORM_ID} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -11,10 +11,12 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'Messaging-app';
-  constructor(){}
+  constructor(@Inject(PLATFORM_ID) private platformId: any){}
   ngOnInit(){
-    if(localStorage.getItem("user") == null){
-      localStorage.setItem("user",window.prompt("Enter User Name"))
+    if(isPlatformBrowser(this.platformId)){
+      if(localStorage.getItem("user") == null){
+        localStorage.setItem("user",window.prompt("Enter User Name"))
+      }
     }
   }
 }
