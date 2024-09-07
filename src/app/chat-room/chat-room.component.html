@@ -1,4 +1,34 @@
-<div class="chat-container">
+<div class="bg-color">
+    <div class="d-flex justify-content-between align-items-center px-4 py-2">
+       
+        <div class="d-flex justify-content-start align-items-center">
+            <button mat-icon-button class="me-4">
+                <mat-icon class="maticon">arrow_back</mat-icon>
+            </button>
+            <div class="me-3">
+                <img src="assets/boy.jpg" alt="Profile Picture" class="rounded-circle" width="40" height="40">
+            </div>
+            <div class="text-white">
+                Dummy Data
+            </div>
+        </div>
+        <div class="d-flex">
+            <button mat-icon-button class="me-4" (click)="openSnackBar()">
+                <mat-icon class="maticon">videocam</mat-icon>
+            </button>
+            <button mat-icon-button class="me-4" (click)="openSnackBar()">
+                <mat-icon class="maticon">call</mat-icon>
+            </button>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon class="maticon">more_vert</mat-icon>
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<!-- new code up side dont remove -->
+<div class="chat-container container px-5">
     <div class="chat-header">
         <div style="float: left;margin-top: 2%;">
             <mat-icon (click)="back()">arrow_back</mat-icon>
@@ -18,3 +48,14 @@
         <button (click)="sendMessage()">Send</button>
     </div>
 </div>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+        <mat-icon>share</mat-icon>
+        <span>Share Room</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>logout</mat-icon>
+        <span>Leave Chat</span>
+      </button>
+  </mat-menu>

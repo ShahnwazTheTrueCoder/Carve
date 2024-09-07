@@ -6,7 +6,9 @@ import { ChatServerService } from '../chat-server.service';
 import {HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 interface Message {
   message: string;
@@ -18,12 +20,13 @@ interface Message {
 @Component({
   selector: 'app-chat-room',
   standalone: true,
-  imports: [CommonModule,FormsModule,MatIconModule,HttpClientModule],
+  imports: [CommonModule,FormsModule,MatIconModule,HttpClientModule,MatMenuModule,MatButtonModule],
   providers:[ChatServerService],
   templateUrl: './chat-room.component.html',
   styleUrl: './chat-room.component.scss'
 })
 export class ChatRoomComponent {
+
   private messagesSubject = new BehaviorSubject<Message[]>([]);
   messages$ = this.messagesSubject.asObservable();
   // messages = new BehaviorSubject<Message[]>([]);
@@ -32,8 +35,10 @@ export class ChatRoomComponent {
   user: string 
   newMessage: string = '';
 
-  constructor(private chatService : ChatServerService,
-    public route : ActivatedRoute
+  constructor(
+    private chatService : ChatServerService,
+    public route : ActivatedRoute,
+    private _snackBar: MatSnackBar
   ){
   }
 
@@ -101,5 +106,8 @@ export class ChatRoomComponent {
   
   back(){
     window.history.back()
+  }
+  openSnackBar(){
+    this._snackBar.open('Under Progress!','Ok!',{verticalPosition:'top',horizontalPosition:'center',duration:2000})
   }
 }
