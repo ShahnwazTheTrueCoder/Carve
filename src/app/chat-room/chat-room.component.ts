@@ -55,32 +55,10 @@ export class ChatRoomComponent {
         this.messages.push(message);  // Add the new message to the list
       });
     })
-
-    // this.chatService.socket.on("receiveMessage",(data)=>{
-    //   console.log("receiveMessage",data)
-    // })
   }
   
   joinRoom(room:string) {
     this.chatService.socket.emit('joinRoom', room);
-    // this.chatService.socket.on('loadMessages',(data:any)=>{
-    //   data.forEach(item=>{
-    //     if(item.users == this.user){
-    //       item.isSent = true
-    //     }else{
-    //       item.isSent = false
-    //     }
-    //   })
-    //   console.log("this is loadMessages -",data)
-    //   this.messages = data
-    //   this.messagesSubject.next(data)
-    //   // return data
-    // })
-    // this.messages = this.chatService.joinRoom(room)
-    // this.messagesSubject.next(this.chatService.joinRoom(room))
-    // this.messagesSubject.subscribe(data=>{
-    //   console.log("comming to the join",room,this.messages,data,this.chatService.joinRoom(room))
-    // })
   }
   
   sendMessage() {

@@ -28,7 +28,6 @@ export class DialogOverviewComponent {
 
     this.form = this.fb.group({
       roomCode: ['', [Validators.required]]
-      // roomCode: ['', [Validators.required, Validators.pattern('^[0-9]*$')]]
     });
   }
 
@@ -62,6 +61,7 @@ joinRoom(): void {
     this.router.navigate(['/chat-room'],{
       queryParams: { roomCode: this.roomCode?.value }
     })
+    this.dialogRef.close();
   }
 }
 

@@ -8,34 +8,14 @@ import { io } from 'socket.io-client';
 })
 export class ChatServerService {
   roomCode:any = null
-  // private apiUrl = 'http://localhost:3000/'; 
-  // private apiUrl = 'https://chat-server-kappa-opal.vercel.app/'; 
   private apiUrl = 'https://detailed-checkered-barge.glitch.me/'; 
-
-  // public socket = io(this.apiUrl)
-  // public socket = io('https://chat-server-kappa-opal.vercel.app/')
   public socket = io(this.apiUrl, {
     transports: ['websocket']
   });
 
   constructor(private http: HttpClient) { }
-
-  // async joinRoom(room: string) : any {
-  //   this.socket =  io('http://localhost:3000/')
-  //   // this.socket =  io('https://chat-server-kappa-opal.vercel.app/')
-  //   this.socket.emit('joinRoom', room);
-  //   const data await this.socket.on('loadMessages',(d:any)=>{
-  //     console.log("this is loadMessages -",d)
-  //     data = d
-  //   })
-  //   return data
-  //   // console.log("room",room)
-  // }
-
-
-  async joinRoom(room: string): Promise<any> {
-    // this.socket = io('http://localhost:3000/'); // Replace with your desired server URL
   
+  async joinRoom(room: string): Promise<any> {  
     // Emit the joinRoom event to the server
     this.socket.emit('joinRoom', room);
   
