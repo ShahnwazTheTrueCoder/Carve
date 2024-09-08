@@ -70,11 +70,20 @@ export class ChatRoomComponent {
 
   sendMessage() {
     if (this.newMessage && this.room) {
-      this.chatService.sendMessage({ room: this.room, user: this.user, message: this.newMessage, isSent: true })
-      this.addMessage()
-      this.newMessage = '';
+      const message = {
+        room: this.room,
+        user: this.user,
+        message: this.newMessage,
+        isSent: true,
+        timestamp: new Date() // Add the current timestamp here
+      };
+  
+      this.chatService.sendMessage(message); // Send the message object with the timestamp
+      this.addMessage();
+      this.newMessage = ''; // Clear the input after sending
     }
   }
+  
 
   fetchMessages(): any {
     if (this.room) {

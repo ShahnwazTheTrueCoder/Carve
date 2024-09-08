@@ -1,15 +1,19 @@
 <ng-template [ngIf]="!createRoomDailog">
-  <div class="p-5">
-    <h4 mat-dialog-title class="text-center text_style mb-4">Please Join Room</h4>
+  <div class="p-4">
+    <h6 mat-dialog-title class="text-center text_style mb-3">Please Join Room</h6>
     <div mat-dialog-content class="d-flex px-2 flex-column align-items-center" [formGroup]="form">
+      <mat-form-field appearance="outline" class="w-100 mb-4">
+        <mat-label>User Name</mat-label>
+        <input matInput placeholder="Enter username" formControlName="roomCode">
+      </mat-form-field>
       <mat-form-field appearance="outline" class="w-100 mb-4">
         <mat-label>Room Code</mat-label>
         <input matInput placeholder="Enter room code" formControlName="roomCode">
       </mat-form-field>
-      <mat-error *ngIf="isInvalid('roomCode')">
-        <ng-container *ngIf="roomCode?.hasError('required')">
+      <!-- <mat-error *ngIf="isInvalid('roomCode')"> -->
+        <!-- <ng-container *ngIf="roomCode?.hasError('required')">
           Room Code is required.
-        </ng-container>
+        </ng-container> -->
         <!-- <ng-container *ngIf="this.chatServ.roomCode == null">
           Room doesn't exist.
         </ng-container> -->
@@ -19,16 +23,16 @@
         <ng-container *ngIf="form.get('roomCode').hasError('maxlength')">
           Room Code cannot be more than 10 characters long.
         </ng-container> -->
-      </mat-error>
+      <!-- </mat-error> -->
     </div>
     <div mat-dialog-actions class="d-flex justify-content-evenly w-100">
-      <button mat-raised-button color="primary" class="btn btn-primary" (click)="joinRoom()">Join Room</button>
+      <button mat-raised-button color="primary" class="btn btn-primary" (keyup.enter)="joinRoom()" (click)="joinRoom()">Join Room</button>
       <button mat-raised-button color="accent" class="btn btn-secondary" (click)="dialogRef.close()">Close</button>
       <!-- <button mat-raised-button color="accent" class="btn btn-secondary" (click)="createRoomDailog = true">Create Room</button> -->
     </div>
   </div>
 </ng-template>
-<ng-template [ngIf]="createRoomDailog">
+<!-- <ng-template [ngIf]="createRoomDailog">
   <div class="p-5">
     <h4 mat-dialog-title class="text-center text_style mb-4">Create Room</h4>
     <div mat-dialog-content class="d-flex px-2 flex-column align-items-center">
@@ -42,4 +46,4 @@
       <button mat-raised-button color="accent" class="btn btn-secondary" >Create Room</button>
     </div>
   </div>
-</ng-template>
+</ng-template> -->
