@@ -1,11 +1,11 @@
 import { CommonModule} from '@angular/common';
-import { Component } from '@angular/core';
+import { ApplicationRef, Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ChatServerService } from '../chat-server.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, first } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
@@ -40,6 +40,12 @@ export class ChatRoomComponent {
     public route : ActivatedRoute,
     private _snackBar: MatSnackBar
   ){
+    inject(ApplicationRef).isStable.pipe(
+      first((isStable) => isStable))
+    .subscribe(() => { 
+      this.chatService.socket.connect()
+      // this.chatService.socket.emit('joinRoom', this.room)
+     });
   }
 
 
@@ -52,7 +58,7 @@ export class ChatRoomComponent {
       this.joinRoom(this.room)
       this.chatService.onMessage().subscribe((message: any) => {
         console.log("this is comming message",message,this.messages)
-        this.addMessage
+        this.addMessage()
         this.messages.push(message);  // Add the new message to the list
       });
     })

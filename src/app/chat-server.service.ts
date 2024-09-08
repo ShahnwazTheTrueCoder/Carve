@@ -9,11 +9,14 @@ import { io } from 'socket.io-client';
 export class ChatServerService {
   roomCode:any = null
   private apiUrl = 'https://detailed-checkered-barge.glitch.me/'; 
-  public socket = io(this.apiUrl, {
-    transports: ['websocket']
-  });
+  public socket 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.socket =  io(this.apiUrl, {
+      transports: ['websocket'],
+      autoConnect : false
+    });
+  }
   
   async joinRoom(room: string): Promise<any> {  
     // Emit the joinRoom event to the server
