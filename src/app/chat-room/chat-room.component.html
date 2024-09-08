@@ -1,6 +1,6 @@
 <div class="bg-color">
     <div class="d-flex justify-content-between align-items-center px-4 py-2">
-       
+
         <div class="d-flex justify-content-start align-items-center">
             <button mat-icon-button class="me-4">
                 <mat-icon (click)="back()" class="maticon">arrow_back</mat-icon>
@@ -28,24 +28,27 @@
 </div>
 
 <!-- new code up side dont remove -->
-<div class="chat-container container px-5">
-    <div class="chat-header">
+<div class="chat-container container bg-white px-5">
+    <!-- <div class="chat-header">
         <div style="float: left;margin-top: 2%;">
             <mat-icon (click)="back()">arrow_back</mat-icon>
         </div>
         <h2>Chat Room</h2>
-    </div>
+    </div> -->
     <div class="chat-messages">
         <ng-template [ngIf]="messages$ | async">
             <div *ngFor="let message of messages$ | async" class="message"
-            [ngClass]="{'sent': message.user === user, 'received': message.user != user}">
-            <p>{{ message.message }}</p>
-        </div>
+                [ngClass]="{'sent': message.user === user, 'received': message.user !== user}">
+                <p style="text-align: left;">{{ message.message | titlecase }}</p>
+                <span class="timestamp">{{ message.timestamp | date:'shortTime' }}</span> <!-- Displaying the time -->
+            </div>
         </ng-template>
     </div>
+
     <div class="chat-input">
-        <input [(ngModel)]="newMessage" placeholder="Type your message..." (keyup.enter)="sendMessage()" />
-        <button (click)="sendMessage()">Send</button>
+        <input [(ngModel)]="newMessage" placeholder="Type Your messge here" (keyup.enter)="sendMessage()" />
+        <button mat-fab (click)="sendMessage()">
+            <mat-icon>send</mat-icon></button>
     </div>
 </div>
 
@@ -53,9 +56,9 @@
     <button mat-menu-item>
         <mat-icon>share</mat-icon>
         <span>Share Room</span>
-      </button>
-      <button mat-menu-item disabled>
+    </button>
+    <button mat-menu-item>
         <mat-icon>logout</mat-icon>
         <span>Leave Chat</span>
-      </button>
-  </mat-menu>
+    </button>
+</mat-menu>
