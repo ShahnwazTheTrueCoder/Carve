@@ -18,7 +18,7 @@ export class HeaderComponent {
 
   openDialog(): void {
     this.dialog.open(DialogOverviewComponent,{
-      width:'600px',height:'300px'
+      width:'600px',height:'350px'
     });
   }
 }
