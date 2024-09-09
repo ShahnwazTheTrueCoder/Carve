@@ -41,7 +41,7 @@
                 [ngClass]="{'message-blue': message.user === user, 'message-gray': message.user !== user}" [ngStyle]="{'align-self': message.user === user? 'flex-end' : 'flex-start'}">
                 <span class="txt">{{ message.message | titlecase }}</span>
                 <span class="timestamp">{{ message.timestamp | date:'shortTime' }}</span> <!-- Displaying the time -->
-                <span class="UserName">{{message.user}}</span>
+                <!-- <span class="UserName">{{message.user}}</span> -->
             </div>
         </ng-template>
         <!-- <ng-template [ngIf]="messages$ | async">
