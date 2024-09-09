@@ -4,29 +4,25 @@
     <div mat-dialog-content class="d-flex px-2 flex-column align-items-center" [formGroup]="form">
       <mat-form-field appearance="outline" class="w-100 mb-4">
         <mat-label>User Name</mat-label>
-        <input matInput placeholder="Enter username" formControlName="roomCode">
+        <input matInput placeholder="Enter username" formControlName="user">
+        <mat-error *ngIf="user.invalid && user.touched">
+          <ng-container *ngIf="user.hasError('required')">
+            User Name is required.
+          </ng-container>
+        </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="w-100 mb-4">
         <mat-label>Room Code</mat-label>
         <input matInput placeholder="Enter room code" formControlName="roomCode">
+        <mat-error *ngIf="roomCode.invalid && roomCode.touched">
+          <ng-container *ngIf="roomCode.hasError('required')">
+            Room Code is required.
+          </ng-container>
+        </mat-error>
       </mat-form-field>
-      <!-- <mat-error *ngIf="isInvalid('roomCode')"> -->
-        <!-- <ng-container *ngIf="roomCode?.hasError('required')">
-          Room Code is required.
-        </ng-container> -->
-        <!-- <ng-container *ngIf="this.chatServ.roomCode == null">
-          Room doesn't exist.
-        </ng-container> -->
-        <!-- <ng-container *ngIf="form.get('roomCode').hasError('minlength')">
-          Room Code must be at least 4 characters long.
-        </ng-container>
-        <ng-container *ngIf="form.get('roomCode').hasError('maxlength')">
-          Room Code cannot be more than 10 characters long.
-        </ng-container> -->
-      <!-- </mat-error> -->
     </div>
     <div mat-dialog-actions class="d-flex justify-content-evenly w-100">
-      <button mat-raised-button color="primary" class="btn btn-primary" (keyup.enter)="joinRoom()" (click)="joinRoom()">Join Room</button>
+      <button mat-raised-button color="primary" class="btn btn-primary" [disabled]="form.invalid" (keyup.enter)="joinRoom()" (click)="joinRoom()">Join Room</button>
       <button mat-raised-button color="accent" class="btn btn-secondary" (click)="dialogRef.close()">Close</button>
       <!-- <button mat-raised-button color="accent" class="btn btn-secondary" (click)="createRoomDailog = true">Create Room</button> -->
     </div>
