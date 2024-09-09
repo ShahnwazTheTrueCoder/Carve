@@ -143,3 +143,34 @@ input {
   margin-top: 5px; /* Adds space between the message and the timestamp */
   text-align: right; /* Aligns timestamp to the right */
 }
+
+.UserName{
+  font-size: 10px;
+    position: absolute;
+    /* top: -20px; */
+    bottom: 75px;
+    color: black;
+    left: 3px;
+}
+
+
+
+.container {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 80vw;
+}
+.messagess {
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+.message-blue {
+  background-color: #3b82f6;
+  color: white;
+}
+.message-gray {
+  background-color: #e5e7eb;
+  color: #374151;
+}
