@@ -17,10 +17,10 @@
 
 .chat-messages {
   flex: 1;
-  padding: 10px; 
+  padding: 10px;
   overflow-y: auto;
   background-color: #ffffff;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .message {
@@ -67,7 +67,7 @@ input {
 .chat-input input::placeholder {
   font-family: Sansation;
   color: #696969;
-  font-weight:600 ;
+  font-weight: 600;
 }
 
 .chat-input button {
@@ -95,21 +95,23 @@ input {
 .chat-messages {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Optional: space between messages */
+  gap: 10px;
+  /* Optional: space between messages */
 }
 
 .message {
   padding: 10px;
   border-radius: 15px;
   max-width: 60%;
-  word-wrap: break-word; /* Ensure long messages wrap */
+  word-wrap: break-word;
+  /* Ensure long messages wrap */
 }
 
 /* Sent messages (align to the right) */
 .sent {
   align-self: flex-end;
   text-align: right;
-  background-color:#B2B3FF; 
+  background-color: #B2B3FF;
   align-self: flex-end;
   font-family: Sansation;
   color: rgb(0, 0, 0);
@@ -121,9 +123,9 @@ input {
 
 /* Received messages (align to the left) */
 .received {
-  align-self: flex-start; 
+  align-self: flex-start;
   background-color: #6E40FF;
-  color: rgb(255, 255, 255); 
+  color: rgb(255, 255, 255);
   text-align: left;
 }
 
@@ -138,21 +140,30 @@ input {
 .timestamp {
   font-size: 8px;
   color: 000000;
-  display: block;
-  
-  margin-top: 5px; /* Adds space between the message and the timestamp */
-  text-align: right; /* Aligns timestamp to the right */
+  display: flex;
+  align-self: flex-end;
+  min-width: 40px;
+  margin-left: 10px;
+  margin-top: 5px;
+  /* Adds space between the message and the timestamp */
+  text-align: right;
+  /* Aligns timestamp to the right */
 }
 
-.UserName{
-  font-size: 10px;
-    position: absolute;
-    /* top: -20px; */
-    bottom: 75px;
-    color: black;
-    left: 3px;
+.UserName {
+  // font-size: 10px;
+  position: absolute;
+  /* top: -20px; */
+  // bottom: 75px;
+  color: black;
+  // left: 3px;
 }
 
+.txt {
+  text-align: left;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
 
 
 .container {
@@ -162,14 +173,19 @@ input {
   padding: 1rem;
   width: 80vw;
 }
+
 .messagess {
   border-radius: 0.5rem;
   padding: 0.5rem;
+  display: flex;
+  flex-flow: row;
 }
+
 .message-blue {
   background-color: #3b82f6;
   color: white;
 }
+
 .message-gray {
   background-color: #e5e7eb;
   color: #374151;
