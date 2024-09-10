@@ -18,6 +18,7 @@
 .chat-messages {
   flex: 1;
   padding: 10px;
+  overflow: hidden;
   overflow-y: auto;
   background-color: #ffffff;
   flex-direction: column;
@@ -96,6 +97,7 @@ input {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow: hidden;
   /* Optional: space between messages */
 }
 
