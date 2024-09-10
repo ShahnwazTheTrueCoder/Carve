@@ -123,8 +123,10 @@ input {
 
 /* Received messages (align to the left) */
 .received {
+ align-items: start;
   align-self: flex-start;
   background-color: #6E40FF;
+  color: rgb(255, 255, 255);
   color: rgb(255, 255, 255);
   text-align: left;
 }
@@ -189,4 +191,49 @@ input {
 .message-gray {
   background-color: #e5e7eb;
   color: #374151;
+}
+
+.chat-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 25px;
+  padding: 0.5rem;
+}
+
+.input-container input {
+  flex: 1;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 25px;
+  outline: none;
+  background-color: transparent;
+}
+
+.file-select-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.send-btn {
+  margin-left: 0.5rem;
+}
+
+.mat-icon {
+  font-size: 24px;
+}
+.text_room{
+  font-family: Sansation;
+  font-weight: bold;
+  font-size: clamp(14px, 1.5vw, 16px);
 }
