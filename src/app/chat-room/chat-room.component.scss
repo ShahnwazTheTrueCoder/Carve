@@ -117,7 +117,7 @@ input {
   color: rgb(0, 0, 0);
   font-size: clamp(14px, 1.5vw, 16px);
   font-weight: 600;
-  border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 30px;
   padding: 10px;
 }
 
@@ -125,6 +125,7 @@ input {
 .received {
  align-items: start;
   align-self: flex-start;
+  border-bottom-left-radius: 30px;
   background-color: #6E40FF;
   color: rgb(255, 255, 255);
   color: rgb(255, 255, 255);
@@ -140,7 +141,7 @@ input {
 }
 
 .timestamp {
-  font-size: 8px;
+  font-size: clamp(8px, 1vw, 10px);
   color: 000000;
   display: flex;
   align-self: flex-end;
@@ -153,12 +154,9 @@ input {
 }
 
 .UserName {
-  // font-size: 10px;
-  position: absolute;
-  /* top: -20px; */
-  // bottom: 75px;
-  color: black;
-  // left: 3px;
+// align-items: start;
+color: rgb(255, 255, 255);
+font-size: clamp(8px, 1vw, 10px);
 }
 
 .txt {
@@ -182,15 +180,27 @@ input {
   display: flex;
   flex-flow: row;
 }
+.messagess_style{
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
 
 .message-blue {
-  background-color: #3b82f6;
-  color: white;
+  background-color: #B2B3FF;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  font-family: Sansation;
+  font-size: clamp(14px, 1.5vw, 16px);
+  border-bottom-right-radius: 32px;
 }
 
 .message-gray {
-  background-color: #e5e7eb;
-  color: #374151;
+  background-color: #6E40FF;
+ color: white;
+ border-bottom-left-radius: 32px;
+ font-weight: 600;
+ font-family: Sansation;
+ font-size: clamp(14px, 1.5vw, 16px);
 }
 
 .chat-input {
@@ -236,4 +246,8 @@ input {
   font-family: Sansation;
   font-weight: bold;
   font-size: clamp(14px, 1.5vw, 16px);
+}
+
+.border-bottom-custom {
+  border-bottom: 3px solid rgb(219, 219, 219);
 }
