@@ -17,10 +17,10 @@
 
 .chat-messages {
   flex: 1;
-  padding: 10px; 
+  padding: 10px;
   overflow-y: auto;
   background-color: #ffffff;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .message {
@@ -67,7 +67,7 @@ input {
 .chat-input input::placeholder {
   font-family: Sansation;
   color: #696969;
-  font-weight:600 ;
+  font-weight: 600;
 }
 
 .chat-input button {
@@ -95,21 +95,23 @@ input {
 .chat-messages {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Optional: space between messages */
+  gap: 10px;
+  /* Optional: space between messages */
 }
 
 .message {
   padding: 10px;
   border-radius: 15px;
   max-width: 60%;
-  word-wrap: break-word; /* Ensure long messages wrap */
+  word-wrap: break-word;
+  /* Ensure long messages wrap */
 }
 
 /* Sent messages (align to the right) */
 .sent {
   align-self: flex-end;
   text-align: right;
-  background-color:#B2B3FF; 
+  background-color: #B2B3FF;
   align-self: flex-end;
   font-family: Sansation;
   color: rgb(0, 0, 0);
@@ -121,9 +123,10 @@ input {
 
 /* Received messages (align to the left) */
 .received {
-  align-self: flex-start; 
+ align-items: start;
+  align-self: flex-start;
   background-color: #6E40FF;
-  color: rgb(255, 255, 255); 
+  color: rgb(255, 255, 255);
   text-align: left;
 }
 
@@ -142,4 +145,49 @@ input {
   
   margin-top: 5px; /* Adds space between the message and the timestamp */
   text-align: right; /* Aligns timestamp to the right */
+}
+
+.chat-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 25px;
+  padding: 0.5rem;
+}
+
+.input-container input {
+  flex: 1;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 25px;
+  outline: none;
+  background-color: transparent;
+}
+
+.file-select-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.send-btn {
+  margin-left: 0.5rem;
+}
+
+.mat-icon {
+  font-size: 24px;
+}
+.text_room{
+  font-family: Sansation;
+  font-weight: bold;
+  font-size: clamp(14px, 1.5vw, 16px);
 }

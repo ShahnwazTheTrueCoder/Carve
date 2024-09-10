@@ -1,5 +1,5 @@
 import { CommonModule} from '@angular/common';
-import { ApplicationRef, Component, inject } from '@angular/core';
+import { ApplicationRef, Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ChatServerService } from '../chat-server.service';
@@ -26,7 +26,7 @@ interface Message {
   styleUrl: './chat-room.component.scss'
 })
 export class ChatRoomComponent {
-
+  @ViewChild('chatContainer') private chatContainer!: ElementRef;
   private messagesSubject = new BehaviorSubject<Message[]>([]);
   messages$ = this.messagesSubject.asObservable();
   // messages = new BehaviorSubject<Message[]>([]);
@@ -50,11 +50,10 @@ export class ChatRoomComponent {
 
 
   ngOnInit() {
-    // this.user = localStorage.getItem("user")
-    this.user = 'shahnwaz'
     this.route.queryParams.subscribe(params=>{
       console.log("params",params['roomCode'])
       this.room = params['roomCode']
+      this.user = params['userName']
       this.joinRoom(this.room)
       this.chatService.onMessage().subscribe((message: any) => {
         console.log("this is comming message",message,this.messages)
@@ -64,12 +63,17 @@ export class ChatRoomComponent {
     })
   }
 
+  ngAfterViewChecked() {
+    this.scrollToBottom();
+  }
+
   joinRoom(room: string) {
     this.chatService.socket.emit('joinRoom', room);
   }
 
   sendMessage() {
     if (this.newMessage && this.room) {
+      this.addMessage();
       const message = {
         room: this.room,
         user: this.user,
@@ -78,9 +82,8 @@ export class ChatRoomComponent {
         timestamp: new Date() // Add the current timestamp here
       };
   
-      this.chatService.sendMessage(message); // Send the message object with the timestamp
-      this.addMessage();
       this.newMessage = ''; // Clear the input after sending
+      this.chatService.sendMessage(message); // Send the message object with the timestamp
     }
   }
   
@@ -103,5 +106,13 @@ export class ChatRoomComponent {
   }
   openSnackBar() {
     this._snackBar.open('Under Progress!', 'Ok!', { verticalPosition: 'top', horizontalPosition: 'center', duration: 2000 })
+  }
+
+  private scrollToBottom(): void {
+    try {
+      this.chatContainer.nativeElement.scrollTop = this.chatContainer.nativeElement.scrollHeight;
+    } catch (err) {
+      console.error(err);
+    }
   }
 }

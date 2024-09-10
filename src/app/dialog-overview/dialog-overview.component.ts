@@ -27,12 +27,17 @@ export class DialogOverviewComponent {
     public router:Router ,public chatServ : ChatServerService ) {
 
     this.form = this.fb.group({
+      user: ['', [Validators.required]],
       roomCode: ['', [Validators.required]]
     });
   }
 
   get roomCode() {
     return this.form.get('roomCode');
+  }
+
+  get user() {
+    return this.form.get('user');
   }
 
 onClose(): void {
@@ -59,7 +64,7 @@ joinRoom(): void {
     //   }
     // })
     this.router.navigate(['/chat-room'],{
-      queryParams: { roomCode: this.roomCode?.value }
+      queryParams: { roomCode: this.roomCode?.value , userName: this.user?.value}
     })
     this.dialogRef.close();
   }
