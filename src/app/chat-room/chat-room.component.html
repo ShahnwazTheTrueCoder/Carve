@@ -77,8 +77,8 @@
         <mat-icon>share</mat-icon>
         <span>Share Room</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="leaveChat()">
         <mat-icon>logout</mat-icon>
-        <span>Leave Chat</span>
+        <span routerLink="home"   >Leave Chat</span>
     </button>
 </mat-menu>

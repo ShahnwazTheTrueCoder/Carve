@@ -9,6 +9,7 @@ import { BehaviorSubject, first } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router'; 
 
 interface Message {
   message: string;
@@ -38,6 +39,7 @@ export class ChatRoomComponent {
   constructor(
     private chatService : ChatServerService,
     public route : ActivatedRoute,
+    private router: Router,
     private _snackBar: MatSnackBar
   ){
     inject(ApplicationRef).isStable.pipe(
@@ -114,5 +116,8 @@ export class ChatRoomComponent {
     } catch (err) {
       console.error(err);
     }
+  }
+  leaveChat() {
+    this.router.navigate(['/home']); 
   }
 }
