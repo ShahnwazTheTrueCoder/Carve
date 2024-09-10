@@ -29,7 +29,7 @@
 </div>
 
 <!-- new code up side dont remove -->
-<div class="chat-container container bg-white px-5">
+<div class="chat-container bg-white">
     <!-- <div class="chat-header">
         <div style="float: left;margin-top: 2%;">
             <mat-icon (click)="back()">arrow_back</mat-icon>
@@ -38,11 +38,16 @@
     </div> -->
     <div class="chat-messages" #chatContainer >
         <ng-template [ngIf]="messages$ | async">
-            <div *ngFor="let message of messages$ | async" class="messagess"
+            <div *ngFor="let message of messages$ | async" class="messagess_style"
                 [ngClass]="{'message-blue': message.user === user, 'message-gray': message.user !== user}" [ngStyle]="{'align-self': message.user === user? 'flex-end' : 'flex-start'}">
+                <div class="border-bottom-custom" >
+                    <span class="UserName">{{message.user|titlecase}}</span>
+                </div>
+                <div class="messagess">
                 <span class="txt">{{ message.message | titlecase }}</span>
+               
                 <span class="timestamp">{{ message.timestamp | date:'shortTime' }}</span> <!-- Displaying the time -->
-                <!-- <span class="UserName">{{message.user}}</span> -->
+            </div>
             </div>
         </ng-template>
         <!-- <ng-template [ngIf]="messages$ | async">
