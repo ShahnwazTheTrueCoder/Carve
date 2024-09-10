@@ -127,6 +127,7 @@ input {
   align-self: flex-start;
   background-color: #6E40FF;
   color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   text-align: left;
 }
 
@@ -141,10 +142,55 @@ input {
 .timestamp {
   font-size: 8px;
   color: 000000;
-  display: block;
-  
-  margin-top: 5px; /* Adds space between the message and the timestamp */
-  text-align: right; /* Aligns timestamp to the right */
+  display: flex;
+  align-self: flex-end;
+  min-width: 40px;
+  margin-left: 10px;
+  margin-top: 5px;
+  /* Adds space between the message and the timestamp */
+  text-align: right;
+  /* Aligns timestamp to the right */
+}
+
+.UserName {
+  // font-size: 10px;
+  position: absolute;
+  /* top: -20px; */
+  // bottom: 75px;
+  color: black;
+  // left: 3px;
+}
+
+.txt {
+  text-align: left;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+
+.container {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 80vw;
+}
+
+.messagess {
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-flow: row;
+}
+
+.message-blue {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.message-gray {
+  background-color: #e5e7eb;
+  color: #374151;
 }
 
 .chat-input {
