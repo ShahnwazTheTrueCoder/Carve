@@ -8,8 +8,9 @@
             <div class="me-3">
                 <img src="assets/boy.jpg" alt="Profile Picture" class="rounded-circle" width="40" height="40">
             </div>
-            <div class="text-white">
-                Dummy Data
+            <div class="text-white text_room">
+                Room
+                {{room}}
             </div>
         </div>
         <div class="d-flex">
@@ -55,10 +56,20 @@
     </div>
 
     <div class="chat-input">
-        <input [(ngModel)]="newMessage" placeholder="Type Your messge here" (keyup.enter)="sendMessage()" />
+        <input [(ngModel)]="newMessage" placeholder="Type Your message here" (keyup.enter)="sendMessage()" />
+
+        <!-- File select button -->
+        <input type="file" id="fileInput" style="display: none;" />
+        <button mat-fab>
+            <mat-icon>attach_file</mat-icon>
+        </button>
+
+        <!-- Send message button -->
         <button mat-fab (click)="sendMessage()">
-            <mat-icon>send</mat-icon></button>
+            <mat-icon>send</mat-icon>
+        </button>
     </div>
+
 </div>
 
 <mat-menu #menu="matMenu">
@@ -66,8 +77,8 @@
         <mat-icon>share</mat-icon>
         <span>Share Room</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="leaveChat()">
         <mat-icon>logout</mat-icon>
-        <span>Leave Chat</span>
+        <span routerLink="home"   >Leave Chat</span>
     </button>
 </mat-menu>
