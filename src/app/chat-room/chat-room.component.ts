@@ -15,7 +15,7 @@ interface Message {
   message: string;
   room: string,
   user: string,
-  isSent: boolean
+  isImage: boolean
 }
 
 @Component({
@@ -28,6 +28,8 @@ interface Message {
 })
 export class ChatRoomComponent {
   @ViewChild('chatContainer') private chatContainer!: ElementRef;
+  @ViewChild('fileInput') fileInput: ElementRef | undefined;
+  imageBase64: string | undefined;
   private messagesSubject = new BehaviorSubject<Message[]>([]);
   messages$ = this.messagesSubject.asObservable();
   // messages = new BehaviorSubject<Message[]>([]);
@@ -59,8 +61,10 @@ export class ChatRoomComponent {
       this.joinRoom(this.room)
       this.chatService.onMessage().subscribe((message: any) => {
         console.log("this is comming message",message,this.messages)
-        this.addMessage()
-        this.messages.push(message);  // Add the new message to the list
+        if(message.user != this.user){
+          this.messages.push(message);  // Add the new message to the list
+          this.addMessage()
+        }
       });
     })
   }
@@ -75,17 +79,31 @@ export class ChatRoomComponent {
 
   sendMessage() {
     if (this.newMessage && this.room) {
-      this.addMessage();
       const message = {
         room: this.room,
         user: this.user,
         message: this.newMessage,
-        isSent: true,
+        isImage: false,
         timestamp: new Date() // Add the current timestamp here
-      };
-  
+      }
+      this.messages.push(message)
+      this.addMessage();
       this.newMessage = ''; // Clear the input after sending
       this.chatService.sendMessage(message); // Send the message object with the timestamp
+
+    }else if(this.imageBase64 && this.room){
+      this.addMessage();
+      const message = {
+        room: this.room,
+        user: this.user,
+        message: this.imageBase64,
+        isImage: true,
+        timestamp: new Date()
+      }
+      this.messages.push(message)
+      this.addMessage();
+      this.imageBase64 = ''; 
+      this.chatService.sendMessage(message); 
     }
   }
   
@@ -119,5 +137,44 @@ export class ChatRoomComponent {
   }
   leaveChat() {
     this.router.navigate(['/home']); 
+  }
+
+  triggerFileInput() {
+    if (this.fileInput) {
+      this.fileInput.nativeElement.click();
+    }
+  }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      // Convert file to Base64 URL
+      reader.onload = () => {
+        this.imageBase64 = reader.result as string;
+        console.log('Base64 URL:', this.imageBase64);
+      };
+
+      // Read the file as a Data URL (Base64)
+      reader.readAsDataURL(file);
+    }
+  }
+
+  downloadImage(index) {
+    console.log("index",index)
+    if (this.messages[index].message && this.messages[index].isImage) {
+      // Create a link element
+      const link = document.createElement('a');
+      link.href = this.messages[index].message;
+
+      // Set the download attribute with a default file name
+      link.download = `downloaded-image-${Date.now()}.png`;
+
+      // Append the link to the document, trigger the download, and then remove the link
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
   }
 }
