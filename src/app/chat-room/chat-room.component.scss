@@ -125,7 +125,7 @@ input {
 
 /* Received messages (align to the left) */
 .received {
- align-items: start;
+  align-items: start;
   align-self: flex-start;
   border-bottom-left-radius: 30px;
   background-color: #6E40FF;
@@ -146,7 +146,8 @@ input {
   font-size: clamp(8px, 1vw, 10px);
   color: 000000;
   display: flex;
-  align-self: flex-end;
+  flex-flow: column;
+  justify-content: space-between;
   min-width: 40px;
   margin-left: 10px;
   margin-top: 5px;
@@ -156,9 +157,9 @@ input {
 }
 
 .UserName {
-// align-items: start;
-color: rgb(255, 255, 255);
-font-size: clamp(8px, 1vw, 10px);
+  // align-items: start;
+  color: rgb(255, 255, 255);
+  font-size: clamp(8px, 1vw, 10px);
 }
 
 .txt {
@@ -177,14 +178,17 @@ font-size: clamp(8px, 1vw, 10px);
 }
 
 .messagess {
-  border-radius: 0.5rem;
-  padding: 0.5rem;
+  border-radius: 0.7rem;
+  padding: 0 0.3rem;
+  padding-top: 0px;
   display: flex;
   flex-flow: row;
 }
-.messagess_style{
+
+.messagess_style {
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 0 0.5rem;
+  padding-top: 0px;
 }
 
 .message-blue {
@@ -193,16 +197,16 @@ font-size: clamp(8px, 1vw, 10px);
   font-weight: 600;
   font-family: Sansation;
   font-size: clamp(14px, 1.5vw, 16px);
-  border-bottom-right-radius: 32px;
+  // border-bottom-right-radius: 32px;
 }
 
 .message-gray {
   background-color: #6E40FF;
- color: white;
- border-bottom-left-radius: 32px;
- font-weight: 600;
- font-family: Sansation;
- font-size: clamp(14px, 1.5vw, 16px);
+  color: white;
+  // border-bottom-left-radius: 32px;
+  font-weight: 600;
+  font-family: Sansation;
+  font-size: clamp(14px, 1.5vw, 16px);
 }
 
 .chat-input {
@@ -244,12 +248,22 @@ font-size: clamp(8px, 1vw, 10px);
 .mat-icon {
   font-size: 24px;
 }
-.text_room{
+
+.text_room {
   font-family: Sansation;
   font-weight: bold;
   font-size: clamp(14px, 1.5vw, 16px);
 }
 
 .border-bottom-custom {
-  border-bottom: 3px solid rgb(219, 219, 219);
+  // border-bottom: 3px solid rgb(219, 219, 219);
+}
+
+.image-show {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: #212324;
+  bottom: 15%;
+  right: 6%;
 }
