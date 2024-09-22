@@ -1,24 +1,30 @@
-h3{
+h3 {
      font-family: nico moji;
      color: white;
 }
 
-.button_get{
-    border: 1.5px solid white;
-    border-radius: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-family: sans-serif;
-    color: white;
-    background-color: black;
-    
-}
-.button_get:hover{
-  background-color: white;
-  color: black;
+.button_get {
+     border: 1.5px solid white;
+     border-radius: 10px;
+     padding-left: 10px;
+     padding-right: 10px;
+     font-family: sans-serif;
+     color: white;
+     background-color: black;
+
 }
 
-mat-icon{
+.button_get:hover {
+     background-color: white;
+     color: black;
+}
+
+mat-icon {
      color: white;
      cursor: pointer;
+}
+
+.hover_button:hover {
+     border-radius: 5px;
+     outline: 2px solid rgb(231, 230, 230);
 }
