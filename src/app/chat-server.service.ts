@@ -38,12 +38,12 @@ export class ChatServerService {
   }
 
   
-  sendMessage(message: { room: string, user: string, message: string, isSent:boolean }) : any {
+  sendMessage(message: { room: string, user: string, message: string, isImage:boolean }) : any {
     console.log("meeg-->",message)
     this.socket.emit('sendMessage', message);
   }
   
-  receiveMessages(): Observable<{ room: string, user: string, message: string, isSent:boolean }> {
+  receiveMessages(): Observable<{ room: string, user: string, message: string, isImage:boolean }> {
     return new Observable(observer => {
       this.socket.on('receiveMessage', (data:any) => {
         observer.next(data);
@@ -51,15 +51,15 @@ export class ChatServerService {
     });
   }
 
-  getMessages(room: string): Observable<{ room: string, user: string, message: string, isSent:boolean }[]> {
-    return this.http.get<{ room: string, user: string, message: string,isSent:boolean }[]>(`${this.apiUrl}messages?room=${room}`);
+  getMessages(room: string): Observable<{ room: string, user: string, message: string, isImage:boolean }[]> {
+    return this.http.get<{ room: string, user: string, message: string,isImage:boolean }[]>(`${this.apiUrl}messages?room=${room}`);
   }
   getAllRooms(){
     return this.http.get<{ room: string}[]>(`${this.apiUrl}getAllRoom`);
   }
 
   
-  public onMessage(): Observable<{ room: string, user: string, message: string, isSent:boolean }> {
+  public onMessage(): Observable<{ room: string, user: string, message: string, isImage:boolean }> {
     return new Observable((observer) => {
       this.socket.on('message', (data : any) => {
         observer.next(data);

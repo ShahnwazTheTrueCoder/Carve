@@ -38,15 +38,20 @@
     </div> -->
     <div class="chat-messages" #chatContainer >
         <ng-template [ngIf]="messages$ | async">
-            <div *ngFor="let message of messages$ | async" class="messagess_style"
+            <div *ngFor="let message of messages$ | async,index as i" class="messagess_style"
                 [ngClass]="{'message-blue': message.user === user, 'message-gray': message.user !== user}" [ngStyle]="{'align-self': message.user === user? 'flex-end' : 'flex-start'}">
                 <div class="border-bottom-custom" >
                     <span class="UserName">{{message.user|titlecase}}</span>
                 </div>
-                <div class="messagess">
-                <span class="txt">{{ message.message | titlecase }}</span>
+                <div class="messagess" [ngStyle]="{'padding-bottom': message.isImage ? '10px' : ''}">
+
+                <span *ngIf="!message.isImage" class="txt">{{ message.message | titlecase }}</span>
+                <img *ngIf="message.isImage" [src]="message.message" alt="Error" height="150px" width="150px">
                
-                <span class="timestamp">{{ message.timestamp | date:'shortTime' }}</span> <!-- Displaying the time -->
+                <div class="timestamp">
+                    <span><mat-icon (click)="downloadImage(i)" *ngIf="message.isImage"  >cloud_download</mat-icon></span>
+                    <span>{{ message.timestamp | date:'shortTime' }}</span>
+                </div> <!-- Displaying the time -->
             </div>
             </div>
         </ng-template>
@@ -64,10 +69,19 @@
         <input [(ngModel)]="newMessage" placeholder="Type Your message here" (keyup.enter)="sendMessage()" />
 
         <!-- File select button -->
-        <input type="file" id="fileInput" style="display: none;" />
-        <button mat-fab>
-            <mat-icon>attach_file</mat-icon>
-        </button>
+        <!-- <input type="file" id="fileInput" style="display: none;" /> -->
+         <div *ngIf="imageBase64" class="image-show">
+            <img [src]="imageBase64" height="100px" width="100px" alt="Error!" />
+         </div>
+        <button mat-fab (click)="triggerFileInput()"><mat-icon>attach_file</mat-icon></button>
+            <!-- Hidden file input -->
+            <input 
+              type="file" 
+              #fileInput 
+              (change)="onFileSelected($event)" 
+              accept="image/*" 
+              style="display: none;" 
+            />
 
         <!-- Send message button -->
         <button mat-fab (click)="sendMessage()">
