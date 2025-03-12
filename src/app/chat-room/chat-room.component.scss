@@ -1,4 +1,8 @@
 .chat-container {
+  background-image: url('/assets/3334896.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   height: 90vh;
@@ -15,14 +19,6 @@
 //   text-align: center;
 // }
 
-.chat-messages {
-  flex: 1;
-  padding: 10px;
-  overflow: hidden;
-  overflow-y: auto;
-  background-color: #ffffff;
-  flex-direction: column;
-}
 
 .message {
   margin: 5px 0;
@@ -50,6 +46,9 @@
   display: flex;
   padding: 10px;
   background-color: #ffffff;
+  background: transparent;
+  position: absolute;
+  bottom: 0px;
 }
 
 input {
@@ -98,8 +97,19 @@ input {
   flex-direction: column;
   gap: 10px;
   overflow: hidden;
+  overflow-y: auto;
+  height: 90vh;
   /* Optional: space between messages */
 }
+
+// .chat-messages {
+//   flex: 1;
+//   padding: 10px;
+//   overflow: hidden;
+//   overflow-y: auto;
+//   background-color: #ffffff;
+//   flex-direction: column;
+// }
 
 .message {
   padding: 10px;
@@ -189,6 +199,7 @@ input {
   border-radius: 0.5rem;
   padding: 0 0.5rem;
   padding-top: 0px;
+  margin-right: 0.5rem;
 }
 
 .message-blue {
