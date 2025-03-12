@@ -1,8 +1,4 @@
 .chat-container {
-  background-image: url('/assets/3334896.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   display: flex;
   flex-direction: column;
   height: 90vh;
@@ -47,8 +43,8 @@
   padding: 10px;
   background-color: #ffffff;
   background: transparent;
-  position: absolute;
-  bottom: 0px;
+  // position: absolute;
+  // bottom: 0px;
 }
 
 input {
@@ -98,7 +94,7 @@ input {
   gap: 10px;
   overflow: hidden;
   overflow-y: auto;
-  height: 90vh;
+  // height: 90vh;
   /* Optional: space between messages */
 }
 
@@ -277,4 +273,11 @@ input {
   background-color: #212324;
   bottom: 15%;
   right: 6%;
+}
+
+.bgImage{
+  background-image: url('/assets/3334896.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

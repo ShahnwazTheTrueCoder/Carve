@@ -1,6 +1,5 @@
 <div class="bg-color">
     <div class="d-flex justify-content-between align-items-center px-4 py-2">
-
         <div class="d-flex justify-content-start align-items-center">
             <button mat-icon-button class="me-4">
                 <mat-icon (click)="back()" class="maticon">arrow_back</mat-icon>
@@ -28,67 +27,47 @@
     </div>
 </div>
 
-<!-- new code up side dont remove -->
-<div class="chat-container bg-white">
-    <!-- <div class="chat-header">
-        <div style="float: left;margin-top: 2%;">
-            <mat-icon (click)="back()">arrow_back</mat-icon>
-        </div>
-        <h2>Chat Room</h2>
-    </div> -->
-    <div class="chat-messages" #chatContainer >
-        <ng-template [ngIf]="messages$ | async">
-            <div *ngFor="let message of messages$ | async,index as i" class="messagess_style"
-                [ngClass]="{'message-blue': message.user === user, 'message-gray': message.user !== user}" [ngStyle]="{'align-self': message.user === user? 'flex-end' : 'flex-start'}">
-                <div class="border-bottom-custom" >
-                    <span class="UserName">{{message.user|titlecase}}</span>
+<div class="bgImage">
+    <!-- new code up side dont remove -->
+    <div class="chat-container">
+
+        <div class="chat-messages" #chatContainer>
+            <ng-template [ngIf]="messages$ | async">
+                <div *ngFor="let message of messages$ | async,index as i" class="messagess_style"
+                    [ngClass]="{'message-blue': message.user === user, 'message-gray': message.user !== user}"
+                    [ngStyle]="{'align-self': message.user === user? 'flex-end' : 'flex-start'}">
+                    <div class="border-bottom-custom">
+                        <span class="UserName">{{message.user|titlecase}}</span>
+                    </div>
+                    <div class="messagess" [ngStyle]="{'padding-bottom': message.isImage ? '10px' : ''}">
+
+                        <span *ngIf="!message.isImage" class="txt">{{ message.message | titlecase }}</span>
+                        <img *ngIf="message.isImage" [src]="message.message" alt="Error" height="150px" width="150px">
+
+                        <div class="timestamp">
+                            <span><mat-icon (click)="downloadImage(i)"
+                                    *ngIf="message.isImage">cloud_download</mat-icon></span>
+                            <span>{{ message.timestamp | date:'shortTime' }}</span>
+                        </div> <!-- Displaying the time -->
+                    </div>
                 </div>
-                <div class="messagess" [ngStyle]="{'padding-bottom': message.isImage ? '10px' : ''}">
-
-                <span *ngIf="!message.isImage" class="txt">{{ message.message | titlecase }}</span>
-                <img *ngIf="message.isImage" [src]="message.message" alt="Error" height="150px" width="150px">
-               
-                <div class="timestamp">
-                    <span><mat-icon (click)="downloadImage(i)" *ngIf="message.isImage"  >cloud_download</mat-icon></span>
-                    <span>{{ message.timestamp | date:'shortTime' }}</span>
-                </div> <!-- Displaying the time -->
-            </div>
-            </div>
-        </ng-template>
-        <!-- <ng-template [ngIf]="messages$ | async">
-            <div *ngFor="let message of messages$ | async" class="message"
-                [ngClass]="{'sent': message.user === user, 'received': message.user !== user}" [ngStyle]="{'align-self': message.user === user? 'flex-end' : 'flex-start'}">
-                <span class="UserName">{{message.user}}</span>
-                <p style="text-align: left;">{{ message.message | titlecase }}</p>
-                <span class="timestamp">{{ message.timestamp | date:'shortTime' }}</span> 
-            </div>
-        </ng-template> -->
+            </ng-template>
+        </div>
     </div>
-
     <div class="chat-input">
         <input [(ngModel)]="newMessage" placeholder="Type Your message here" (keyup.enter)="sendMessage()" />
-
-        <!-- File select button -->
-        <!-- <input type="file" id="fileInput" style="display: none;" /> -->
-         <div *ngIf="imageBase64" class="image-show">
+        <div *ngIf="imageBase64" class="image-show">
             <img [src]="imageBase64" height="100px" width="100px" alt="Error!" />
-         </div>
+        </div>
         <button mat-fab (click)="triggerFileInput()"><mat-icon>attach_file</mat-icon></button>
-            <!-- Hidden file input -->
-            <input 
-              type="file" 
-              #fileInput 
-              (change)="onFileSelected($event)" 
-              accept="image/*" 
-              style="display: none;" 
-            />
+        <!-- Hidden file input -->
+        <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" style="display: none;" />
 
         <!-- Send message button -->
         <button mat-fab (click)="sendMessage()">
             <mat-icon>send</mat-icon>
         </button>
     </div>
-
 </div>
 
 <mat-menu #menu="matMenu">
@@ -98,6 +77,6 @@
     </button>
     <button mat-menu-item (click)="leaveChat()">
         <mat-icon>logout</mat-icon>
-        <span routerLink="home"   >Leave Chat</span>
+        <span routerLink="home">Leave Chat</span>
     </button>
 </mat-menu>
