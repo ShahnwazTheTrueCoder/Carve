@@ -13,7 +13,7 @@
       </mat-form-field>
       <mat-form-field appearance="outline" class="w-100 mb-4">
         <mat-label>Room Code</mat-label>
-        <input matInput placeholder="Enter room code" formControlName="roomCode">
+        <input matInput placeholder="Enter room code" formControlName="roomCode" (keyup.enter)="joinRoom()">
         <mat-error *ngIf="roomCode.invalid && roomCode.touched">
           <ng-container *ngIf="roomCode.hasError('required')">
             Room Code is required.

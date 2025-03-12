@@ -27,7 +27,7 @@ export class DialogOverviewComponent {
     public router:Router ,public chatServ : ChatServerService ) {
 
     this.form = this.fb.group({
-      user: ['', [Validators.required]],
+      user: [localStorage.getItem('name') || '', [Validators.required]],
       roomCode: ['', [Validators.required]]
     });
   }
@@ -67,6 +67,7 @@ joinRoom(): void {
       queryParams: { roomCode: this.roomCode?.value , userName: this.user?.value}
     })
     this.dialogRef.close();
+    localStorage.setItem('name', this.user?.value)
   }
 }
 
