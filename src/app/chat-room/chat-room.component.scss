@@ -1,7 +1,7 @@
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  // height: 90vh;
   width: 100vw;
   margin: 0 auto;
   // border: 1px solid #ccc;
@@ -89,12 +89,13 @@ input {
 }
 
 .chat-messages {
+  margin-top: 3px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   overflow: hidden;
   overflow-y: auto;
-  // height: 90vh;
+  height: 78.2vh;
   /* Optional: space between messages */
 }
 
